@@ -1,7 +1,8 @@
-import { Button } from 'bootstrap'
+
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import {addTask} from "../Redux/actions/taskActions"
+import { Button, TextField } from '@mui/material'
 const AddTask = () => {
     const [task,setTask]= useState("")
     const dispatch=useDispatch()
@@ -16,8 +17,8 @@ const AddTask = () => {
     }
   return (
     <div>
-      <input type='text' value={task} onChange={(e)=> setTask(e.target.value)}/>
-      <button onClick={AddTaskFunction}> Add task</button>
+      <TextField label="Outlined" variant="outlined" type='text' value={task} onChange={(e)=> setTask(e.target.value)}/>
+      <Button variant="outlined" color="error" onClick={AddTaskFunction}> Add task</Button>
     </div>
   )
 }

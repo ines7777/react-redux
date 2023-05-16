@@ -1,4 +1,4 @@
-import { ADD_TASK, COMPLETE_TASK } from "../Constants/actionTypes"
+import { ADD_TASK, COMPLETE_TASK, EDIT_TASK } from "../Constants/actionTypes"
 
 const initialState={
     tasks :[
@@ -29,6 +29,20 @@ switch(type){
             ...state,
             tasks:toogleTasks
         }
+
+    case EDIT_TASK:
+        const editedTasks=state.tasks.map(task=>{
+            if(task.id===payload.id){
+                task.id=payload.id
+                task.description=payload.description
+                task.isDone=payload.isDone
+            }
+            return task 
+        }) 
+        return {
+            ...state,
+            tasks: editedTasks
+        }   
 
     default :
        return state    

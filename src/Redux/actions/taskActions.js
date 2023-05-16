@@ -1,4 +1,4 @@
-import { ADD_TASK, COMPLETE_TASK } from "../Constants/actionTypes"
+import { ADD_TASK, COMPLETE_TASK, EDIT_TASK } from "../Constants/actionTypes"
 
 export const addTask=(task)=>{
 return{
@@ -12,4 +12,11 @@ export const completeTask=(task)=>{
         type:COMPLETE_TASK,
         payload:task
     }
+}
+
+export const editTask=(task)=>{
+return{
+    type:EDIT_TASK,
+    payload:task
+}
 }
